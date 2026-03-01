@@ -14,4 +14,5 @@ Same story lmfao :) This was when I tried to do the same thing I did last time w
 
 ### Day 17 (day not as accurate, but it feels like it)
 I decided to push my progress to github and deploy the current version. I am now at the Pipes section under the Overview in the docs https://docs.nestjs.com
-I have learned a lot from the docs than I have from YouTube videos. And that is why I now follow docs when I want to learn something in tech instead of watching someone explain all that he remembers from another video he watched which was of another person explaining all which he remembered... the loop goes on and on until you realize you dumb af for..... NAhh lemme shut up fo now.
+I have learned a lot from the docs than I have from YouTube videos. And that is why I now follow docs when I want to learn something in tech instead of watching someone explain all that he remembers from another video he watched which was of another person explaining all which he remembered... the loop goes on and on until you realize you dumb af for..... NAhh lemme shut up for now.
+
