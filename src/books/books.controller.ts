@@ -1,10 +1,11 @@
-import { BadRequestException, Body, Controller, ForbiddenException, Get, HttpException, HttpStatus, Param, Post, UseFilters } from '@nestjs/common';
+import { BadRequestException, Body, Controller, ForbiddenException, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, UseFilters, UsePipes } from '@nestjs/common';
 import { CreateBookDto } from './dtos/create-book.dto';
 import { BooksService } from './books.service';
 import { Book } from './interfaces/book.interface';
 import { ForbiddenBruhException } from 'src/exceptions/forbidden.exception';
 import { BadBruhException } from 'src/exceptions/bad.exception';
 import { AnotherExceptionFilter } from 'src/filters/another.filter';
+import { createBookSchema, MyValidationPipe, MyZodSchemeValidator, type CreateBookPipeDto } from 'src/pipes/validation.pipes';
 
 @Controller('books')
 // you can also UseFilters controller-scoped
@@ -15,8 +16,21 @@ export class BooksController {
     return this.bookService.findAll();
   }
 
+  @Get('pipe/:id')
+  testingAPipe(@Param('id', ParseIntPipe) id: number) {
+    return "This opne works as expected: " + String(id)
+  }
+
+  @Get('pipe/2/:id')
+  testingAPipe2(@Param('id', new ParseIntPipe({errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE})) id: number) {
+    return {
+      "bruh": "All's well that ends well",
+      "input": id
+    }
+  }
+
   @Post()
-  async create(@Body() body: CreateBookDto) {
+  async create(@Body(new MyValidationPipe()) body: CreateBookDto) {
     return this.bookService.create(body);
   }
 
@@ -33,7 +47,7 @@ export class BooksController {
   }
 
   @Get('edit/:id')
-  getOne(@Param('id') id: string) {
+  getOne(@Param('id', ParseIntPipe) id: string) {
     try {
       return this.bookService.findAll()
     } catch (err) {
@@ -75,6 +89,14 @@ export class BooksController {
   badBruh() {
     throw new BadBruhException();
   }
+
+
+  // THE ERROR HERE IS JUST STRESSFUL AND TIME-CONSUMING TO DEAL WITH, SEE YOU IN MONTHS OF EXPERIENCE
+  // @Post('new')
+  // @UsePipes(new MyZodSchemeValidator(createBookSchema))
+  // async createNewBook(@Body() data: CreateBookPipeDto) {
+  //   this.bookService.create(data)
+  // }
 }
 
 // In the options, the cause can also be an error caught by exception handling 

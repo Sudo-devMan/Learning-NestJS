@@ -16,3 +16,5 @@ Same story lmfao :) This was when I tried to do the same thing I did last time w
 I decided to push my progress to github and deploy the current version. I am now at the Pipes section under the Overview in the docs https://docs.nestjs.com
 I have learned a lot from the docs than I have from YouTube videos. And that is why I now follow docs when I want to learn something in tech instead of watching someone explain all that he remembers from another video he watched which was of another person explaining all which he remembered... the loop goes on and on until you realize you dumb af for..... NAhh lemme shut up for now.
 
+### Week 3
+Today is the day I have decided to lock in harder than EVER. My wifi router is really slow rn ``(6 March 2026, 17:52)``. Now I'm just waiting for it to work, otherwise I'll practice some calculus. I'm starting to lose my patience, so now I will just practice calculus to use up all this spare time. Oh wait.. The network is BACK AND FAST-WORKING!!! Aight I am at the part about "Pipes" in the overview section

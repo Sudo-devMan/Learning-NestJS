@@ -2,10 +2,12 @@ import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/c
 import { SongsController } from './songs.controller';
 import { SongsService } from './songs.service';
 import { SongsMiddlewre } from 'src/common/middleware/songs.middleware';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 @Module({
   controllers: [SongsController],
-  providers: [SongsService],
+  providers: [SongsService, {provide: APP_GUARD, useClass: AuthGuard}],
   exports: [SongsService]
 })
 export class SongsModule implements NestModule {
