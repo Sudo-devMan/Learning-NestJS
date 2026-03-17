@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, ForbiddenException, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, UseFilters, UsePipes } from '@nestjs/common';
+import { BadRequestException, Body, Controller, ForbiddenException, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, UseFilters, UseInterceptors, UsePipes } from '@nestjs/common';
 import { CreateBookDto } from './dtos/create-book.dto';
 import { BooksService } from './books.service';
 import { Book } from './interfaces/book.interface';
@@ -6,6 +6,7 @@ import { ForbiddenBruhException } from 'src/exceptions/forbidden.exception';
 import { BadBruhException } from 'src/exceptions/bad.exception';
 import { AnotherExceptionFilter } from 'src/filters/another.filter';
 import { createBookSchema, MyValidationPipe, MyZodSchemeValidator, type CreateBookPipeDto } from 'src/pipes/validation.pipes';
+import { GayFilter, TimeOutInt, TransformToUpper } from 'src/interceptors/practice.interceptor';
 
 @Controller('books')
 // you can also UseFilters controller-scoped
@@ -14,6 +15,29 @@ export class BooksController {
   @Get()
   async findAll(): Promise<Book[]> {
     return this.bookService.findAll();
+  }
+
+  @Get('reviews')
+  @UseInterceptors(TransformToUpper)
+  reviews(): string[] {
+    return [
+      'This is not a compliment',
+      'This is the best song!',
+      'Dali. This song gives me the chills',
+      'We made you'
+    ]
+  }
+
+  @Get('gayfilter')
+  @UseInterceptors(GayFilter)
+  gayFilter() {
+    return {message: 'You gay af'}
+  }
+
+  @Get('timeout')
+  @UseInterceptors(TimeOutInt)
+  timeOut() {
+    return {message: "You were fast hey!"}
   }
 
   @Get('pipe/:id')
@@ -38,6 +62,7 @@ export class BooksController {
   allSongs() {
     return this.bookService.songs();
   }
+
 
   @Get('bruh')
   bruh() {
