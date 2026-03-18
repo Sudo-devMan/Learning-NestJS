@@ -7,6 +7,7 @@ import { PracticeGuard } from 'src/guards/practice.guard';
 import { MaximumSongPlays } from 'src/decorators/max-song-plays.decorator';
 import { LoggingInterceptor } from 'src/interceptors/logging.interceptor';
 import { ChoppedInterceptor, MapDataToObject } from 'src/interceptors/map-data-to-object.interceptor';
+import { Bruh, Skills } from 'src/decorators/practice.decorator';
 
 @Controller('songs')
 export class SongsController {
@@ -15,6 +16,17 @@ export class SongsController {
     @Post()
     create(){
         return this.songsService.create("cr0bb - 16")
+    }
+
+    // Test my custom decorator
+    @Get('decorator')
+    testDec(@Bruh() bruh: string) {
+        return bruh
+    }
+
+    @Get('skills')
+    getSkills(@Skills('MQL5 + Full stack developer') skills: string): {skills: string} {
+        return {skills}
     }
 
     // findAll, findOne, update, delete,
