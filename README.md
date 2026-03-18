@@ -18,3 +18,6 @@ I have learned a lot from the docs than I have from YouTube videos. And that is 
 
 ### Week 3
 Today is the day I have decided to lock in harder than EVER. My wifi router is really slow rn ``(6 March 2026, 17:52)``. Now I'm just waiting for it to work, otherwise I'll practice some calculus. I'm starting to lose my patience, so now I will just practice calculus to use up all this spare time. Oh wait.. The network is BACK AND FAST-WORKING!!! Aight I am at the part about "Pipes" in the overview section
+
+### 18 March 2026 04:59
+I woke up and I decided to keep learning NestJS instead of practicing for my physics test today. And oh boy was it the best decision I have ever took. Over the past few weeks I did not have time to just sit and some coding due to the heavy school workload I had. But now finally I can say `I have finished the overview section on the NestJS documentation` and honestly it feels good. Learning is fun when you learn straight from the source instead of whatching endless tutorials that, 80%, don't even make sense.
