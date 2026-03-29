@@ -13,7 +13,8 @@ export class MyValidationPipe implements PipeTransform<any> {
         const object = plainToInstance(metatype, value);
         const errors = await validate(object)
         if (errors.length > 0) {
-            return new BadRequestException("Could not validate thy input")
+            console.log("MyValidationPipe errors: ", errors)
+            throw new BadRequestException(errors)
         }
         return value
     }
